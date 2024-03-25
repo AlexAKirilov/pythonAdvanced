@@ -2,13 +2,13 @@ from flask import Flask
 from collections import defaultdict
 
 app = Flask(__name__)
-storage = defaultdict(lambda: defaultdict(int))
+storage = {}
 
 @app.route('/add/<date>/<int:expense>')
 def add_expense(date, expense):
     year = int(date[:4])
     month = int(date[4:6])
-    storage.setdefault(year, defaultdict(int)).setdefault(month, 0)
+    storage.setdefault(year, {}).setdefault(month, 0)
     storage[year][month] += expense
     return 'Expense added successfully'
 
