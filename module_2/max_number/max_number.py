@@ -16,7 +16,7 @@ def max_number(numbers):
                 pass
         except:
             max_num = max_num
-        return str(max_num)
+        return f'<i>{str(max_num)}</i>'
     except:
         return 'Error. Invalid argument type on input'
 
